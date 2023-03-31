@@ -10,4 +10,18 @@ class Variant extends Model
         'title', 'description'
     ];
 
+
+
+    public function productvariant()
+    {
+        return $this->hasMany('App\Models\ProductVariant')->distinct('variant');
+    }
+
+//     public function uniquevariant()
+// {
+    
+//    return  $this->productvariant()->groupBy('variant');
+      
+// }  
+
 }

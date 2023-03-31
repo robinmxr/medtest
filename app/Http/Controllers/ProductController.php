@@ -13,9 +13,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
+
+
+
+    
     public function index()
     {
-        return view('products.index');
+        $products = Product::paginate(5);
+        $variants = Variant::all();
+
+        foreach($variants as $key=>$variant)
+        {
+            $pv[$key]=$variant->productvariant()->get()->pluck('variant')->unique();
+        }
+         return view('products.index',compact('products','variants','pv'));
+
+
+        
+
     }
 
     /**

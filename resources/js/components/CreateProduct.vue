@@ -1,8 +1,10 @@
 <template>
     <section>
+        <form @submit.prevent="submitForm">
         <div class="row">
             <div class="col-md-6">
                 <div class="card shadow mb-4">
+                    
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Product Name</label>
@@ -93,6 +95,7 @@
 
         <button @click="saveProduct" type="submit" class="btn btn-lg btn-primary">Save</button>
         <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+        </form>
     </section>
 </template>
 
